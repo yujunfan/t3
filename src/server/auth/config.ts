@@ -32,7 +32,13 @@ declare module "next-auth" {
  */
 export const authConfig = {
   providers: [
-    DiscordProvider,
+    DiscordProvider({
+      clientId: process.env.AUTH_DISCORD_ID!,
+      clientSecret: process.env.AUTH_DISCORD_SECRET!,
+      // httpOptions: {
+      //   timeout: 10000, // 10秒超时
+      // },
+    }),
     /**
      * ...add more providers here.
      *
