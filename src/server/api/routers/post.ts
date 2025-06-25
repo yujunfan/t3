@@ -63,6 +63,10 @@ export const postRouter = createTRPCRouter({
       return post ?? null;
     }),
 
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    return ctx.db.post.findMany();
+  }),
+
   // 受保护端点：getSecretMessage - 获取秘密消息，需要用户登录
   getSecretMessage: protectedProcedure
     // 查询函数：返回一个简单的秘密消息
