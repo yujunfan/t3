@@ -1,0 +1,9 @@
+# 配置OAuth2.0
+1.  先在discord 创建一个应用
+2.  在应用中创建一个OAuth2.0 的客户端
+3.  在应用中创建一个OAuth2.0 的客户端ID和客户端密钥
+4.  在应用中创建一个OAuth2.0 的客户端重定向URL
+
+参考文档 https://create.t3.gg/en/usage/first-steps
+
+discord Auth2.0 配置 文档 https://discord.com/developers/applications
