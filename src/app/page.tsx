@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaCode, FaDatabase, FaCloud, FaMobile } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiPrisma, SiPostgresql, SiReact, SiNodedotjs } from "react-icons/si";
+import { Button } from "@/components/ui/button";
 
 import { auth } from "@/server/auth";
 import { api, HydrateClient } from "@/trpc/server";
@@ -86,7 +87,7 @@ export default async function Home() {
       <main className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
         {/* 导航栏 */}
         <nav className="fixed top-0 z-50 w-full bg-black/20 backdrop-blur-md border-b border-white/10">
-          <div className="container mx-auto px-6 py-4">
+          <div className="w-full mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="text-2xl font-bold text-white">
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -270,28 +271,7 @@ export default async function Home() {
               ))}
             </div>
           </section>
-
-          {/* 登录状态显示 */}
-          {session && (
-            <section className="container mx-auto px-6 py-20">
-              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-4">欢迎回来！</h3>
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src={session.user.image || personalInfo.avatar} 
-                    alt="User Avatar" 
-                    className="w-16 h-16 rounded-full"
-                  />
-                  <div>
-                    <p className="text-white text-lg font-medium">{session.user.name}</p>
-                    <p className="text-gray-400">{session.user.email}</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
         </div>
-
         {/* Footer */}
         <footer className="bg-black/20 border-t border-white/10 py-8">
           <div className="container mx-auto px-6 text-center">

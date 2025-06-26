@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { api } from "@/trpc/react";
+import { Button } from "@/components/ui/button";
 
 export function LatestPost() {
   const [latestPost] = api.post.getLatest.useSuspenseQuery();
@@ -37,13 +38,17 @@ export function LatestPost() {
           onChange={(e) => setName(e.target.value)}
           className="w-full rounded-full bg-white/10 px-4 py-2 text-white"
         />
-        <button
+        <Button
+         disabled={createPost.isPending}
+        type="submit">
+          {" "}
+          {createPost.isPending ? "Submitting..." : "Submit"}
+        </Button>
+        {/* <button
           type="submit"
           className="rounded-full bg-white/10 px-10 py-3 font-semibold transition hover:bg-white/20"
-          disabled={createPost.isPending}
-        >
-          {createPost.isPending ? "Submitting..." : "Submit"}
-        </button>
+         
+        ></button> */}
       </form>
     </div>
   );
